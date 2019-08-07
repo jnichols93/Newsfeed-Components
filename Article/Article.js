@@ -100,7 +100,7 @@ const data = [
   </div>
 
   Hint: You will need to use createElement more than once here!
-
+    
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
 
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
@@ -112,3 +112,9 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article
 
 */
+const article =
+document.createElement('div');
+document.createElement('h2');
+document.createElement('p');
+document.createElement('button');
+ 
