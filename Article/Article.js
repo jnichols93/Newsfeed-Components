@@ -124,6 +124,8 @@ const data = [
 
 */
 
+const articles = document.querySelector('.articles');
+console.log(articles);
 function componentCreator(obj) {
   const article = document.createElement('div');
   const title = document.createElement('h2');
@@ -157,3 +159,7 @@ function componentCreator(obj) {
   article.appendChild(expandButton);
   return article;
 }
+
+data.forEach(articleData => {
+  articles.appendChild(componentCreator(articleData));
+});
