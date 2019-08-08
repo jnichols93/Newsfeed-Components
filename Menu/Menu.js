@@ -34,7 +34,7 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
-window.addEventListener('load', (event) => {
+window.addEventListener('load', (e) => {
 ///selectors
   const menuButton = document.querySelector('.menu-button');
 
