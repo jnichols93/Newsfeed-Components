@@ -52,7 +52,7 @@ window.addEventListener('load', (e) => {
       list.appendChild(listItem);
     });
   
-    menuButton.addEventListener('click', (event) => {
+    menuButton.addEventListener('click', (e) => {
       menu.classList.toggle('menu--open');
     });
   
