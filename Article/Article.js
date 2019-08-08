@@ -85,8 +85,19 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "My Time At Lambda",
+    date: "Aug 7th,2019",
+    firstParagraph: `Fixie chambray heirloom, quinoa palo santo beard cloud bread trust fund. Lumbersexual banjo 3 wolf moon selvage hell of post-ironic. DIY artisan sriracha gentrify, drinking vinegar iceland ennui yr. Pour-over messenger bag fixie synth blog unicorn.`,
+
+    secondParagraph: `Keytar vegan master cleanse portland chartreuse vaporware unicorn iceland semiotics live-edge gochujang. Pitchfork lomo bushwick letterpress everyday carry try-hard. Vegan flannel slow-carb next level gochujang portland. Literally tumblr helvetica next level drinking vinegar kickstarter tote bag hell of chartreuse lo-fi prism hexagon pug 90's shaman. Vice fashion axe forage kombucha retro bicycle rights dreamcatcher iPhone gochujang cronut poke. 8-bit kale chips readymade tousled, deep v bicycle rights marfa enamel pin lomo brunch brooklyn viral +1 lo-fi.`,
+
+    thirdParagraph: `Distillery mustache swag, pop-up ramps plaid ugh locavore flexitarian vice godard chambray lomo next level. Before they sold out waistcoat food truck, 90's gastropub affogato brunch viral. Street art iPhone DIY messenger bag normcore retro pour-over succulents chillwave. Brooklyn heirloom air plant kinfolk, disrupt woke cray narwhal cred whatever. Pop-up prism shaman, everyday carry lomo irony mlkshk portland photo booth messenger bag woke iceland. Bushwick pork belly bespoke man bun glossier. Tousled 90's health goth freegan, bespoke blog chillwave snackwave pour-over umami flannel vape palo santo fashion axe.`
   }
 ];
+
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
@@ -100,7 +111,7 @@ const data = [
   </div>
 
   Hint: You will need to use createElement more than once here!
-
+    
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
 
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
@@ -109,6 +120,48 @@ const data = [
 
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
+  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article
 
 */
+window.addEventListener('load', (e)=>{
+const articles = document.querySelector('.articles');
+
+function componentCreator(obj) {
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const expandButton = document.createElement('span');
+
+  ///class assignment
+  article.classList.add('article');
+  date.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  //add Event Listener on button
+    expandButton.addEventListener('click', (event) => {
+    article.classList.toggle('article-open');
+  });
+
+  title.textContent = obj.title;
+  date.textContent = obj.date;
+  p1.textContent = obj.firstParagraph;;
+  p2.textContent = obj.secondParagraph;
+  p3.textContent = obj.thirdParagraph;
+  expandButton.textContent = 'lemme see!';
+//append
+article.appendChild(title);
+article.appendChild(date);
+article.appendChild(p1);
+article.appendChild(p2);
+article.appendChild(p3);
+article.appendChild(expandButton);
+  return article;
+}
+
+data.forEach(obj => {
+  articles.appendChild(componentCreator(obj));
+});
+});
