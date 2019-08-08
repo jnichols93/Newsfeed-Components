@@ -141,22 +141,23 @@ function componentCreator(obj) {
   expandButton.classList.add('expandButton');
 
   //add Event Listener on button
-    expandButton.addEventListener('toggle', (event) => {
-    expandButton.classList.toggle('article-open');
+    expandButton.addEventListener('click', (event) => {
+    article.classList.toggle('article-open');
   });
 
   title.textContent = obj.title;
   date.textContent = obj.date;
-  p1.textContent = obj.p1;
-  p2.textContent = obj.p2;
-  p3.textContent = obj.p3;
-
-  article.appendChild(title);
-  article.appendChild(date);
-  article.appendChild(p1);
-  article.appendChild(p2);
-  article.appendChild(p3);
-  article.appendChild(expandButton);
+  p1.textContent = obj.firstParagraph;;
+  p2.textContent = obj.secondParagraph;
+  p3.textContent = obj.thirdParagraph;
+  expandButton.textContent = 'lemme see!';
+//append
+article.appendChild(title);
+article.appendChild(date);
+article.appendChild(p1);
+article.appendChild(p2);
+article.appendChild(p3);
+article.appendChild(expandButton);
   return article;
 }
 
